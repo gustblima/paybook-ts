@@ -347,5 +347,10 @@ export default class DocumentGenerator {
     ' ': '37',
     'Ñ': '38'
   }
+}
 
+if(window) {
+  try {
+    window['DocumentGenerator'] = DocumentGenerator
+  } catch(e){}
 }

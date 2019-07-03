@@ -9,7 +9,7 @@ export default class DocumentGenerator {
     static getCommonPart(name: string, surnameFather: string, surnameMother: string, bornDay: any, bornMonth: any, bornYear: any, type: DocumentType): string;
     static getBornStateCode(stateName: string): any;
     static getGenderLetter(gender: Gender): "M" | "H";
-    static getSpecialChar(bornYear: string): "A" | "0";
+    static getSpecialChar(bornYear: string): "0" | "A";
     static removeCommonNames: (currentName: string) => string;
     static removePrefixes: (currentName: string) => string;
     static removeBadWords(word: string, type: DocumentType): any;
