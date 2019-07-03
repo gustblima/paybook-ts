@@ -9,7 +9,7 @@ type Gender = 'M' | 'F'
 
 export default class DocumentGenerator {
 
-  static getCURP = (name: string, surnameFather: string, surnameMother: string, bornDay: string, bornMonth: string, bornYear: string, bornState: string, gender: Gender) => {
+   static getCURP = (name: string, surnameFather: string, surnameMother: string, bornDay: string, bornMonth: string, bornYear: string, bornState: string, gender: Gender) => {
 
     name = StringUtils.clearString(name)
     name = DocumentGenerator.removeCommonNames(name)
@@ -34,7 +34,7 @@ export default class DocumentGenerator {
     return curp
   }
 
-  static getRFC = (name: string, surnameFather: string, surnameMother: string, bornDay: string, bornMonth: string, bornYear: string) => {
+   static getRFC = (name: string, surnameFather: string, surnameMother: string, bornDay: string, bornMonth: string, bornYear: string) => {
 
     name = StringUtils.clearString(name)
     name = DocumentGenerator.removeCommonNames(name)
@@ -47,7 +47,7 @@ export default class DocumentGenerator {
     return DocumentGenerator.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, DocumentType.RFC)
   }
 
-  static getCommonPart (name: string, surnameFather: string, surnameMother: string, bornDay, bornMonth, bornYear, type: DocumentType) {
+  private static getCommonPart (name: string, surnameFather: string, surnameMother: string, bornDay, bornMonth, bornYear, type: DocumentType) {
     let commonPart = surnameFather[0]
     commonPart += StringUtils.getFirstInternalVowel(surnameFather)
     commonPart += surnameMother[0] || 'X'
@@ -59,13 +59,13 @@ export default class DocumentGenerator {
     return commonPart
   }
 
-  static getBornStateCode (stateName: string) {
+  private static getBornStateCode (stateName: string) {
     const { clearString, removeAccents } = StringUtils
     const parsedStateName = removeAccents(clearString(stateName))
     return DocumentGenerator.states[parsedStateName]
   }
 
-  static getGenderLetter (gender: Gender) {
+  private static getGenderLetter (gender: Gender) {
     switch (gender) {
       case 'M':
         return 'H'
@@ -74,7 +74,7 @@ export default class DocumentGenerator {
     }
   }
 
-  static getSpecialChar (bornYear: string) {
+  private static getSpecialChar (bornYear: string) {
     if (bornYear[0] === '1') {
       return '0'
     } else {
@@ -82,21 +82,21 @@ export default class DocumentGenerator {
     }
   }
 
-  static removeCommonNames = (currentName: string): string => (
+  private static removeCommonNames = (currentName: string): string => (
     DocumentGenerator
       .notAcceptedNames
       .reduce((name, notAccepted) => name.replace(new RegExp('^' + notAccepted), '')
         , currentName)
   )
 
-  static removePrefixes = (currentName: string): string => (
+  private static removePrefixes = (currentName: string): string => (
     DocumentGenerator
       .prefixes
       .reduce((name, notAccepted) => name.replace(new RegExp('^' + notAccepted), '')
         , currentName)
   )
 
-  static removeBadWords (word: string, type: DocumentType) {
+  private static removeBadWords (word: string, type: DocumentType) {
     let badWordsList
 
     if (type === DocumentType.CURP) {
@@ -112,7 +112,7 @@ export default class DocumentGenerator {
     return word
   }
 
-  static states = {
+  private static states = {
     'AGUASCALIENTES': 'AS',
     'BAJA CALIFORNIA': 'BC',
     'BAJA CALIFORNIA NORTE': 'BC',
@@ -149,7 +149,7 @@ export default class DocumentGenerator {
     'ZACATECAS': 'ZS'
   }
 
-  static notAcceptedNames = [
+  private static notAcceptedNames = [
     'MARIA DEL ',
     'MARIA DE LOS ',
     'MARIA ',
@@ -162,12 +162,12 @@ export default class DocumentGenerator {
     'J '
   ]
 
-  static prefixes = [
+  private static prefixes = [
     'DE ',
     'DEL '
   ]
 
-  static badWordsCURP = {
+  private static badWordsCURP = {
     'BACA': 'BXCA',
     'LOCO': 'LXCO',
     'BAKA': 'BXKA',
@@ -250,7 +250,7 @@ export default class DocumentGenerator {
     'WUEY': 'WXEY'
   }
 
-  static getLastCURPDigit = (incompleteCurp: string) => {
+  private static getLastCURPDigit = (incompleteCurp: string) => {
     const dictionary = '0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
     let lnSum = 0.0
     let lnDigt = 0.0
@@ -264,7 +264,7 @@ export default class DocumentGenerator {
     return lnDigt
   }
 
-  static badWordsRFC = {
+  private static badWordsRFC = {
     'BUEI': 'BUEX',
     'BUEY': 'BUEX',
     'CACA': 'CACX',
@@ -306,7 +306,7 @@ export default class DocumentGenerator {
     'RUIN': 'RUIX'
   }
 
-  static characterValues = {
+  private static characterValues = {
     '0': '00',
     '1': '01',
     '2': '02',
