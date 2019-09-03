@@ -1,2 +1,2 @@
-export { default } from './DocumentGenerator'
-export * from './DocumentGenerator'
+export { default } from './Paybook'
+export * from './Paybook'

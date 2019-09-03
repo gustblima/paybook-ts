@@ -1,7 +1,7 @@
 {
-  "name": "mx-document-generator",
+  "name": "paybook-typescript",
   "version": "1.0.5",
-  "description": "Library to generate RFC and CURP",
+  "description": "Paybook API helper",
   "main": "dist/lib/index.js",
   "directories": {
     "doc": "docs"
@@ -14,20 +14,13 @@
     "build:types": "tsc --emitDeclarationOnly",
     "deploy": "npm run build && npm publish"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/smaniotov/RFC-CURP-Mexico.git"
-  },
   "keywords": [
-    "rfc",
-    "curp",
-    "mx",
-    "mexico-documents",
-    "document"
+    "paybook",
+    "sync",
+    "typescript"
   ],
-  "author": "Héctor Iván Patricio & Vinícius O. Smanioto",
+  "author": "Gustavo de B. Lima",
   "license": "ISC",
-  "homepage": "https://github.com/smaniotov/RFC-CURP-Mexico#readme",
   "jest": {
     "transform": {
       ".+\\.tsx?$": "ts-jest"
@@ -41,7 +34,9 @@
       "json"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "0.19.0"
+  },
   "devDependencies": {
     "@types/jest": "24.0.13",
     "jest": "24.8.0",

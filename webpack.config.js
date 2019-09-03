@@ -30,7 +30,7 @@ const serverConfig = {
 
 const clientConfig = (mode) => ({
   mode,
-  target: 'web',
+  target: 'node',
   entry: './src/lib/',
   resolve: {
     extensions: ['.ts', '.js']
