@@ -21,7 +21,9 @@ const serverConfig = {
   },
   output: {
     path: path.resolve(__dirname, 'dist/lib'),
-    filename: '[name].js'
+    filename: '[name].js',
+    library: 'paybook-ts',
+    libraryTarget: 'umd'
   },
   module: loaders
 };
