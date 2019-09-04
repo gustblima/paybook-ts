@@ -1,8 +1,9 @@
 {
   "name": "paybook-ts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Paybook API helper",
   "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "directories": {
     "doc": "docs"
   },

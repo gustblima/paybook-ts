@@ -11,14 +11,12 @@ const loaders = {
 }
 
 const serverConfig = {
-  mode: 'development',
+  mode: 'production',
   target: 'node',
   resolve: {
-    extensions: ['.ts']
+    extensions: ['.ts', '.js']
   },
   entry: {
-    DocumentGenerator: './src/lib/DocumentGenerator.ts',
-    StringUtils: './src/lib/StringUtils.ts',
     index: './src/lib/index.ts'
   },
   output: {
@@ -28,18 +26,4 @@ const serverConfig = {
   module: loaders
 };
 
-const clientConfig = (mode) => ({
-  mode,
-  target: 'node',
-  entry: './src/lib/',
-  resolve: {
-    extensions: ['.ts', '.js']
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist/web'),
-    filename: mode === 'production' ? 'lib.min.js' : 'lib.js'
-  },
-  module: loaders
-});
-
-module.exports = [serverConfig, clientConfig('development'), clientConfig('production')];
+module.exports = [serverConfig];
