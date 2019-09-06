@@ -131,6 +131,12 @@ export default class Paybook {
     })
   }
 
+  checkCredentialsStatusUsingUrl = (token, url) => {
+    return this.get(url, {
+      token
+    })
+  }
+
   getAttachmentExtra (token, attachmentId) {
     return this.get(`/attachments/${attachmentId}/extra`, {
       token
