@@ -123,7 +123,7 @@ export default class Paybook {
   }
 
   getAttachments (token, options = {}): Promise<Array<Attachment>> {
-    return axios.get(`/attachments`, {
+    return this.get(`/attachments`, {
       params: {
         token,
         ...options
