@@ -124,15 +124,13 @@ export default class Paybook {
 
   getAttachments (token, options = {}): Promise<Array<Attachment>> {
     return this.get(`/attachments`, {
-      params: {
-        token,
-        ...options
-      }
+      token,
+      ...options
     })
   }
 
-  checkCredentialsStatusUsingUrl = (token, url) => {
-    return this.get(url, {
+  checkCredentialsStatusByJobId = (token, jobId) => {
+    return this.get(`/jobs/${jobId}/status`, {
       token
     })
   }

@@ -32,6 +32,11 @@ test('Create Credentials', async () => {
   expect(credentials.id_credential).toBeDefined()
 })
 
+test('Check Credentials Status', async () => {
+  const status = await pb.checkCredentialsStatusByJobId(session.token, credentials.id_job)
+  expect(status).toBeDefined()
+})
+
 test('Get Transactions', async () => {
   transactions = await pb.getTransactions(session.token, credentials.id_credential)
   expect(transactions).toBeDefined()
