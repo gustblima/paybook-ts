@@ -1,5 +1,11 @@
 import Paybook from '../lib/Paybook'
-import { User, Session, Credentials, Transaction, CatalogueSite } from '../lib/Models'
+import {
+  User,
+  Session,
+  Credentials,
+  Transaction,
+  CatalogueSite
+} from 'paybook-ts'
 const pb = new Paybook()
 pb.setApiKey('INSERT API KEY HERE')
 pb.setIsTest(true)
