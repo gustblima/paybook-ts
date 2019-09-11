@@ -6,7 +6,7 @@ import {
   Transaction,
   CatalogueSite,
   Attachment
-} from 'paybook-ts'
+} from './Models'
 
 export default class Paybook {
   private apiKey
